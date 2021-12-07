@@ -7,7 +7,25 @@ information. Students can register with the library to be a member. Books can be
 students with a valid library membership. A student can keep an issued book with him/her for a
 maximum period of two weeks from the date of issue, beyond which a fine will be charged. Fine
 is calculated based on the delay in days of return. For 0-7 days: Rs 10, For 7 – 30 days: Rs 100,
-and for days above 30 days: Rs 10 will be charged per day.
+and for days above 30 days: Rs 10 will be charged per day.import random
+
+import mysql.connector             
+from mysql.connector import Error  
+from faker import Faker
+
+Faker.seed(33422)
+fake = Faker()
+
+conn = mysql.connector.connect(host="@localhost", database="lib",
+                               user="s5d2_snp", password="password")
+cursor = conn.cursor()
+  
+row = [random.uniform.randint(1,100),fake.first_name(), random.randint(0,99),random.randint(0,99),random.randint(0,99), fake.date_of_birth(),random.randint(0,99),fake.first_name()]
+cursor.execute(' \                                                                          
+     INSERT INTO `BOOK` (Book_Id,TITLE,Language_Id,MRP,Publisher_Id,Published_Date,Volume,Status) \ 
+     VALUES (%d,"%s", %d,%d,%d "%s",%d,"%s",);' % (row[0], row[1], row[2],row[3],row[4],row[5],row[6],row[7])
+
+conn.commit()
 Sample Database Design
 
 - BOOK (Book_Id, Title, Language_Id, MRP, Publisher_Id, Published_Date, Volume, Status) //
