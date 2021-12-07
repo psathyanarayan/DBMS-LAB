@@ -16,7 +16,7 @@ Language_Id, Publisher_Id are FK (Foreign Key)
 - BOOK_AUTHOR(Book_Id, Author_Id) // many-to-many relationship, both columns are PKFK
 (Primary Key and Foreign Key)
 - PUBLISHER(Publisher_id, Name, Address)
-'''CREATE TABLE BOOK(Book_Id INT PRIMARY KEY,TITLE VARCHAR(25),Language_Id INT, MRP INT, Publisher_Id INT, Published_Date DATE, Volume INT, Status VARCHAR(25), FOREIGN KEY(Language_Id) REFERENCES PUBLISHER(Publisher_id));'''
+```CREATE TABLE BOOK(Book_Id INT PRIMARY KEY,TITLE VARCHAR(25),Language_Id INT, MRP INT, Publisher_Id INT, Published_Date DATE, Volume INT, Status VARCHAR(25), FOREIGN KEY(Language_Id) REFERENCES PUBLISHER(Publisher_id));```
 - MEMBER(Member_Id, Name, Branch_Code, Roll_Number, Phone_Number, Email_Id,
 Date_of_Join, Status)
 - BOOK_ISSUE(Issue_Id, Date_Of_Issue, Book_Id, Member_Id, Expected_Date_Of_Return,
